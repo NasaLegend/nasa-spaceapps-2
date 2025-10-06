@@ -1,0 +1,784 @@
+.weather-metrics-display {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.metrics-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.metrics-header h2 {
+  margin: 0 0 15px 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.location-info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.location-info span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 25px;
+  color: #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6, #f59e0b);
+  border-radius: 20px 20px 0 0;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.metric-card.high::before {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.metric-card.medium::before {
+  background: linear-gradient(90deg, #f97316, #ea580c);
+}
+
+.metric-card.low::before {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.metric-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.metric-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #374151;
+  flex: 1;
+}
+
+.metric-label {
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.metric-current {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.current-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.metric-forecast {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #e5e7eb;
+}
+
+.forecast-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.forecast-days {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.forecast-days::-webkit-scrollbar {
+  height: 6px;
+}
+
+.forecast-days::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.forecast-days::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.forecast-days::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.forecast-day {
+  text-align: center;
+  padding: 15px 12px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.forecast-day:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+  transform: scale(1.02);
+}
+
+.day-date {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.day-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.day-condition {
+  font-size: 1.2rem;
+  margin-top: 5px;
+}
+
+.alerts-section {
+  margin-top: 30px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.alerts-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ef4444, #f97316, #10b981);
+  border-radius: 20px 20px 0 0;
+}
+
+.alerts-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.alerts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.alert-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.alert-card.high {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fee2e2;
+}
+
+.alert-card.safe {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #d1fae5;
+}
+
+.alert-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.alert-icon {
+  font-size: 2rem;
+  margin-right: 15px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-content strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.alert-content span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .weather-metrics-display {
+    padding: 15px;
+  }
+
+  .metrics-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .location-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .metric-card {
+    padding: 20px;
+  }
+
+  .current-value {
+    font-size: 2.5rem;
+  }
+
+  .forecast-day {
+    min-width: 80px;
+    padding: 12px 8px;
+  }
+
+  .alerts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .metric-label {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-metrics-display {
+    padding: 10px;
+  }
+
+  .metrics-header {
+    padding: 15px;
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .current-value {
+    font-size: 2rem;
+  }
+
+  .forecast-day {
+    padding: 10px 5px;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.metric-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.metric-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.metric-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.metric-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.metric-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.metric-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Efectos hover para iconos */
+.metric-icon,
+.day-condition,
+.alert-icon {
+  transition: transform 0.2s ease;
+}
+
+.metric-card:hover .metric-icon,
+.forecast-day:hover .day-condition,
+.alert-card:hover .alert-icon {
+  transform: scale(1.1);
+}
+
+/* Indicadores de intensidad */
+.metric-card.high {
+  border-left: 5px solid #ef4444;
+}
+
+.metric-card.medium {
+  border-left: 5px solid #f97316;
+}
+
+.metric-card.low {
+  border-left: 5px solid #10b981;
+}
+
+/* Tooltips y Glosario */
+.metric-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.metric-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-icon {
+  font-size: 16px;
+  opacity: 0.7;
+  cursor: help;
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-icon:hover {
+  opacity: 1;
+}
+
+.tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 300px;
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: opacity 0.3s, visibility 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.tooltip-content p {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tooltip-content .ranges {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.tooltip-content .ranges strong {
+  color: #fbbf24;
+  font-size: 12px;
+}
+
+.tooltip-content ul {
+  margin: 5px 0 0 0;
+  padding-left: 15px;
+}
+
+.tooltip-content li {
+  margin-bottom: 3px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.metric-tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Flecha del tooltip */
+.tooltip-content::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Responsive para tooltips */
+@media (max-width: 768px) {
+  .tooltip-content {
+    width: 250px;
+    font-size: 12px;
+  }
+
+  .tooltip-content h4 {
+    font-size: 13px;
+  }
+
+  .tooltip-content li {
+    font-size: 10px;
+  }
+}
+
+/* Mejoras para predicciones futuras */
+.forecast-day {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.forecast-day:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.day-date {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.9;
+  flex: 1;
+  text-align: left;
+}
+
+.day-icon {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.forecast-day:hover .day-icon {
+  transform: scale(1.2);
+}
+
+.day-value {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 5px 0;
+  cursor: help;
+}
+
+.day-condition-label {
+  font-size: 10px;
+  font-weight: 500;
+  opacity: 0.8;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-top: 4px;
+}
+
+/* Header mejorado */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.glossary-button {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.glossary-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal del Glosario */
+.glossary-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.glossary-content {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border-radius: 15px;
+  width: 90vw;
+  max-width: 800px;
+  max-height: 80vh;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.glossary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glossary-header h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.glossary-body {
+  padding: 25px;
+  max-height: 60vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.glossary-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.glossary-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.glossary-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.glossary-item {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 4px solid #60a5fa;
+}
+
+.glossary-item h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+.glossary-item p {
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ranges-info {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+.ranges-info strong {
+  color: #fbbf24;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ranges-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.ranges-info li {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* Responsive para modal */
+@media (max-width: 768px) {
+  .glossary-content {
+    width: 95vw;
+    max-height: 85vh;
+  }
+
+  .glossary-header {
+    padding: 15px 20px;
+  }
+
+  .glossary-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .glossary-body {
+    padding: 20px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .glossary-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

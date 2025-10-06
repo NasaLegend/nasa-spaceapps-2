@@ -1,0 +1,322 @@
+/* Estilos para ProbabilityDisplay - Diseño Mejorado Consistente */
+
+.probability-display-container {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.probability-display-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6, #f59e0b);
+  border-radius: 20px 20px 0 0;
+}
+
+.location-info {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.location-info p {
+  margin: 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.location-info strong {
+  color: var(--primary-color);
+}
+
+/* Estilos actualizados para el nuevo diseño de ProbabilityDisplay */
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 2rem;
+  background: var(--card-background);
+  border-radius: 8px;
+  border: 2px dashed var(--border-color);
+  margin: 1rem 0;
+  color: var(--text-secondary);
+}
+
+.explanation-box {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.explanation-box h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.explanation-box p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.probabilities-container {
+  margin-top: 1.5rem;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.condition-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.condition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.condition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.condition-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.condition-icon {
+  font-size: 1.5rem;
+}
+
+.condition-title h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.severity-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+  min-width: 120px;
+  white-space: nowrap;
+}
+
+.probability-display {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.probability-percentage {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+}
+
+.probability-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.probability-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.probability-fill {
+  height: 8px;
+  transition: width 0.6s ease;
+  border-radius: 4px;
+}
+
+.condition-description {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.condition-description p {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.condition-description p:last-child {
+  margin-bottom: 0;
+}
+
+.recommendation {
+  margin-top: 1rem;
+}
+
+.rec {
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.rec.high-risk {
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid #ef4444;
+  color: #dc2626;
+}
+
+.rec.medium-risk {
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 4px solid #f59e0b;
+  color: #d97706;
+}
+
+.rec.low-risk {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 4px solid #10b981;
+  color: #059669;
+}
+
+.methodology-note {
+  background: var(--background-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--primary-color);
+  margin-top: 2rem;
+}
+
+.methodology-note h4 {
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.methodology-note p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .conditions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .condition-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .severity-badge {
+    align-self: flex-start;
+    min-width: auto;
+  }
+
+  .probability-percentage {
+    font-size: 2rem;
+  }
+
+  .condition-card {
+    padding: 1rem;
+  }
+}
+
+/* Tema compacto */
+.compact .condition-card {
+  padding: 1rem;
+}
+
+.compact .probability-percentage {
+  font-size: 2rem;
+}
+
+.compact .condition-description {
+  padding: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.compact .methodology-note {
+  padding: 1rem;
+}
+
+.compact .explanation-box {
+  padding: 1rem;
+}
+
+/* Estilos para compatibilidad hacia atrás */
+.no-variables-selected {
+  text-align: center;
+  padding: 2rem;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.info-note {
+  background: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  border-left: 4px solid var(--primary-color);
+}
+
+.info-note small {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}

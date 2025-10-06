@@ -1,0 +1,138 @@
+.location-picker {
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-search {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.location-search:focus {
+  outline: none;
+  border-color: #2a5298;
+  box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+}
+
+.manual-coords-btn {
+  padding: 0.75rem;
+  min-width: 50px;
+  font-size: 1.2rem;
+}
+
+.selected-location {
+  background: #e8f4fd;
+  border: 1px solid #b3d9ff;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.selected-location h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1e3c72;
+  font-size: 1rem;
+}
+
+.selected-location p {
+  margin: 0;
+  color: #333;
+}
+
+.coordinates {
+  color: #666;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+.search-loading {
+  text-align: center;
+  padding: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+.search-results,
+.popular-locations {
+  margin-top: 1rem;
+}
+
+.search-results h4,
+.popular-locations h4 {
+  margin: 0 0 0.75rem 0;
+  color: white !important;
+  font-size: 1rem;
+}
+
+.location-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.location-item {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.location-item:last-child {
+  border-bottom: none;
+}
+
+.location-item:hover {
+  background-color: #f8f9fa;
+}
+
+.location-item:active {
+  background-color: #e9ecef;
+}
+
+.location-name {
+  font-weight: 600;
+  color: white !important;
+  margin-bottom: 0.25rem;
+}
+
+.location-details {
+  font-size: 0.875rem;
+  color: white !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.country {
+  color: white !important;
+}
+
+.coordinates {
+  color: white !important;
+  font-size: 0.9rem;
+  font-family: monospace;
+}
+
+@media (max-width: 768px) {
+  .location-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .location-list {
+    max-height: 250px;
+  }
+}

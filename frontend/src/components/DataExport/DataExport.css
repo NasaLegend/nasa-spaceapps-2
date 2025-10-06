@@ -1,0 +1,149 @@
+.export-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 1px solid #dee2e6;
+}
+
+.export-options {
+  margin-bottom: 1.5rem;
+}
+
+.export-info {
+  background: white;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #e9ecef;
+}
+
+.export-info h4 {
+  margin: 0 0 0.75rem 0;
+  color: #1e3c72;
+  font-size: 1rem;
+}
+
+.export-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.export-info li {
+  padding: 0.25rem 0;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.export-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #28a745;
+  transition: all 0.3s;
+}
+
+.export-btn:hover:not(:disabled) {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.export-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.export-description {
+  border-top: 1px solid #dee2e6;
+  padding-top: 1.5rem;
+}
+
+.export-description h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.format-description {
+  margin-bottom: 1rem;
+}
+
+.format-description h5 {
+  margin: 0 0 0.5rem 0;
+  color: #1e3c72;
+  font-size: 0.95rem;
+}
+
+.format-description p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .export-card {
+    margin-top: 1rem;
+  }
+
+  .export-btn {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Estilos para texto en negro */
+.export-card h2 {
+  color: #000000 !important;
+  font-weight: 600;
+}
+
+.export-card .form-group label {
+  color: white !important;
+  font-weight: 500;
+}
+
+.export-card .form-group select {
+  color: white !important;
+  background-color: black !important;
+  border: 1px solid #ddd;
+}
+
+.export-card .form-group select option {
+  color: white !important;
+  background-color: black !important;
+}
+
+.export-info ul li {
+  color: #000000 !important;
+}
+
+.export-note small {
+  color: #000000 !important;
+}
+
+.export-note small strong {
+  color: #000000 !important;
+}

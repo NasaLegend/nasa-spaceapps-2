@@ -1,0 +1,576 @@
+.personalization-panel {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.panel-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.panel-header h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.panel-header p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.config-section {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.config-section h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-description {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 15px;
+}
+
+/* Modo de Análisis */
+.analysis-mode-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.mode-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 12px 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.mode-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.mode-button.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Condiciones */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+.condition-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.condition-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.condition-card.selected {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #fff;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+}
+
+.condition-icon {
+  font-size: 24px;
+  min-width: 30px;
+}
+
+.condition-info {
+  flex: 1;
+}
+
+.condition-info h5 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.condition-info p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.condition-toggle {
+  font-size: 18px;
+}
+
+/* Unidades de Temperatura */
+.temperature-units {
+  display: flex;
+  gap: 15px;
+}
+
+.unit-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.unit-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.unit-button.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: #fff;
+}
+
+/* Predicciones Futuras */
+.future-predictions-config {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toggle-container input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-slider {
+  width: 50px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: white;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s ease;
+}
+
+.toggle-container input[type="checkbox"]:checked + .toggle-slider {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.toggle-container input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(25px);
+}
+
+.days-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-left: 60px;
+}
+
+.days-slider {
+  flex: 1;
+  max-width: 200px;
+}
+
+.days-value {
+  font-weight: 600;
+  min-width: 60px;
+}
+
+/* Umbrales Personalizados */
+.custom-thresholds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.threshold-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.threshold-input label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input-with-unit {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.threshold-value {
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  color: white;
+  font-size: 14px;
+  flex: 1;
+  outline: none;
+}
+
+.threshold-value::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.unit-label {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Resumen de Configuración */
+.config-summary {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.summary-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.summary-item {
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.summary-item strong {
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .personalization-panel {
+    padding: 20px;
+    margin: 10px 0;
+  }
+
+  .conditions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analysis-mode-options,
+  .temperature-units {
+    flex-direction: column;
+  }
+
+  .days-selector {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+  }
+
+  .custom-thresholds {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-items {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animaciones */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.config-section {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Estados de carga */
+.personalization-panel.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.personalization-panel.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Métricas Visibles */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.metric-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.metric-label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  gap: 15px;
+}
+
+.metric-checkbox {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: #4caf50;
+  flex-shrink: 0;
+}
+
+.metric-info {
+  flex: 1;
+}
+
+.metric-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.metric-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.metric-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #ffffff;
+  flex: 1;
+}
+
+.metric-unit {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.metric-description {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Configuración de Exportación */
+.export-config {
+  margin-top: 15px;
+}
+
+.export-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.export-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.export-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.export-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #4caf50;
+}
+
+.export-icon {
+  font-size: 18px;
+}
+
+.export-name {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.export-settings {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.export-setting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.export-setting:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.export-setting input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #4caf50;
+}
+
+.export-setting span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.export-info {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(76, 175, 80, 0.1);
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.export-info h5 {
+  margin: 0 0 10px 0;
+  color: #4caf50;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.export-info ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.export-info li {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+}
+
+.export-info li::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  background: #4caf50;
+  border-radius: 50%;
+}
